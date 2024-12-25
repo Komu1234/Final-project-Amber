@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+      <h1>Donor Details</h1>
+      <p class="text-muted">Manage donor information effectively.</p>
+    </div>
+
+    <!-- Donor Information Form -->
+    <div class="card mb-4">
+      <div class="card-header bg-primary text-white">
+        Add New Donor
+      </div>
+      <div class="card-body">
+        <form id="donorForm">
+          
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Donor Id</label>
+              <input type="text" #id  id="id" class="form-control" placeholder="Enter donor id number" required>
+            </div>
+            <div class="col-md-6">
+              <label for="bloodType" class="form-label">Blood Type</label>
+              <select id="bloodType" class="form-select" required>
+                <option value="" disabled selected>Select blood type</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="getId(id.value)">Get Details</button>
+        </form>
+      </div>
+    </div>
+    <p>Value is: {{displayval}}</p>
+    <button type="submit" class="btn btn-primary"(click)="getUsers()">Gets Details</button>
+    <!-- Donor List Table -->
+    <div class="card">
+      <div class="card-header bg-secondary text-white">
+        Donor List
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Blood Type</th>
+              <th>Actions</th>
+              <th>Address</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+
+          @for (user of auth;track user.id) {
+            <tbody id="donorTableBody">
+              <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.mno}}</td>
+                    <td>{{user.blooodgroup}}</td>
+                    <td>{{user.bloodunit}}</td>
+                    <td>{{user.address}}</td>
+                    <td>{{user.gender}}</td>
+
+              </tr>
+              <!-- Donor rows will be dynamically added here -->
+            </tbody>
+          }
+          
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle form submission and table updates
+    const donorForm = document.getElementById('donorForm');
+    const donorTableBody = document.getElementById('donorTableBody');
+    let donorCount = 0;
+
+    donorForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const bloodType = document.getElementById('bloodType').value;
+
+      donorCount++;
+
+      const row = `
+        <tr>
+          <td>${donorCount}</td>
+          <td>${name}</td>
+          <td>${email}</td>
+          <td>${phone}</td>
+          <td>${bloodType}</td>
+          <td>
+            <button class="btn btn-sm btn-warning">Edit</button>
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+      `;
+
+      donorTableBody.insertAdjacentHTML('beforeend', row);
+      donorForm.reset();
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

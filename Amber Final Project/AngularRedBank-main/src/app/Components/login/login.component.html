@@ -1,0 +1,42 @@
+
+<style>
+  body {
+    background-image: url("../Images/LoginPaoge/login.jpg");
+  }
+  </style>
+  
+  
+  <link rel="stylesheet" href="./login.component.scss">
+  <!-- <div>
+    <img src="../Images/LoginPaoge/login.jpg" width="100%" height="100%">
+  </div> -->
+  
+
+  
+  <div class="login-container">
+    
+    <div class="login-box">
+
+      <h1>RedBank Login</h1>
+      
+      <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+        
+        <button type="submit" (click)="openDash('dashboard')" class="btn login-btn">Login</button>
+        
+       
+        
+      </form>
+      <div >
+        <p>New User?  <a href="/signup" >SignUp</a></p>
+      </div>
+    </div>
+  
+</div>
+
+  
+
