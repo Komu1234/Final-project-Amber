@@ -9,6 +9,7 @@ import { ContactusComponent } from './Components/contactus/contactus.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { GetdetailsComponent } from './Components/getdetails/getdetails.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 export const routes: Routes = [
     {
@@ -67,7 +68,12 @@ export const routes: Routes = [
         path:'getdetails',
         title:'App Get Details',
         component: GetdetailsComponent,
-    }
+    },
+    {
+        path: 'contact',
+        title: 'App Contact Page',
+        component: ContactComponent,
+    },
     
 
 ];

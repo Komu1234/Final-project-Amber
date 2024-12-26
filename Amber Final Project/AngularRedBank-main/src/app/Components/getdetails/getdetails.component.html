@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donor Details</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+<app-navbar></app-navbar>
   <div class="container mt-5">
     <!-- Page Header -->
     <div class="text-center mb-4">
@@ -15,14 +7,14 @@
     </div>
 
     <!-- Donor Information Form -->
-    <div class="card mb-4">
-      <div class="card-header bg-primary text-white">
-        Add New Donor
+    <div class="card mb-4 text-center" style="height: 150px; width: 300px; margin-left: 520px;">
+      <div class="card-header bg-primary text-white text-center">
+        All Donor Details
       </div>
-      <div class="card-body">
+      <div class="card-body text-center">
         <form id="donorForm">
           
-          <div class="row mb-3">
+          <!-- <div class="row mb-3">
             <div class="col-md-6">
               <label for="phone" class="form-label">Donor Id</label>
               <input type="text" #id  id="id" class="form-control" placeholder="Enter donor id number" required>
@@ -41,13 +33,13 @@
                 <option value="AB-">AB-</option>
               </select>
             </div>
-          </div>
-          <button type="submit" class="btn btn-primary" (click)="getId(id.value)">Get Details</button>
+          </div> -->
+          <button type="submit" class="btn btn-primary" (click)="change('Get Details')">Get Details</button>
         </form>
       </div>
     </div>
-    <p>Value is: {{displayval}}</p>
-    <button type="submit" class="btn btn-primary"(click)="getUsers()">Gets Details</button>
+    +
+    
     <!-- Donor List Table -->
     <div class="card">
       <div class="card-header bg-secondary text-white">
@@ -57,29 +49,29 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>#</th>
+             
               <th>ID</th>
               <th>Name</th>
               <th>Email</th>
               <th>Phone</th>
               <th>Blood Type</th>
-              <th>Actions</th>
+              <th>Blood Unit</th>
               <th>Address</th>
               <th>Gender</th>
             </tr>
           </thead>
 
-          @for (user of auth;track user.id) {
-            <tbody id="donorTableBody">
+          @for (user of getList;track user.donorId) {
+            <tbody id="donorTableBody"  *ngIf="current == 'Get Details'">
               <tr>
-                    <td>{{user.id}}</td>
-                    <td>{{user.name}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.mno}}</td>
-                    <td>{{user.blooodgroup}}</td>
-                    <td>{{user.bloodunit}}</td>
-                    <td>{{user.address}}</td>
-                    <td>{{user.gender}}</td>
+                    <td>{{user.donorId}}</td>
+                    <td>{{user.donorName}}</td>
+                    <td>{{user.donorEmailId}}</td>
+                    <td>{{user.donorMobileNo}}</td>
+                    <td>{{user.donorBloodGroup}}</td>
+                    <td>{{user.donorBloodUnit}}</td>
+                    <td>{{user.donorAddress}}</td>
+                    <td>{{user.donorGender}}</td>
 
               </tr>
               <!-- Donor rows will be dynamically added here -->
@@ -125,6 +117,5 @@
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
 

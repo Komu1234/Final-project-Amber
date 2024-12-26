@@ -1,4 +1,4 @@
-<nav class="navbar bg-primary" data-bs-theme="dark">
+<nav *ngIf="show" class="navbar bg-primary" data-bs-theme="dark">
     <ul class="nav justify-content-end">
         <li class="nav-item">
           <a class="nav-link active"  routerLink="/">Home</a>
@@ -15,9 +15,11 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" routerLink="/contactus" >Contact For Queries</a>
+            <a class="nav-link" routerLink="/contact" >Contact For Queries</a>
           </li>
 
       </ul>
 </nav>
+
+
 

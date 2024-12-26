@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { RouterOutlet } from '@angular/router';
+import { NavbarService } from '../../Services/navbar.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +9,16 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit,OnDestroy{
+  constructor(private navbarservice:NavbarService){
+
+  }
+  ngOnDestroy(): void {
+      this.navbarservice.display();
+  }
+
+  ngOnInit(): void {
+    this.navbarservice.hide();
+  }
 
 }

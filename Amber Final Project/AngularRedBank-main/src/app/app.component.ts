@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,HomeComponent, LoginComponent, DeleteDonorComponent, AboutComponent, SignUpComponent, ContactusComponent, RouterLink, MainnavbarComponent,NavbarComponent,AddDonorComponent],
+  imports: [RouterOutlet,HomeComponent, LoginComponent,DeleteDonorComponent, AboutComponent, SignUpComponent, ContactusComponent, RouterLink, MainnavbarComponent,NavbarComponent,AddDonorComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
